@@ -10,7 +10,7 @@ import java.time.temporal.ChronoUnit;
  * Las entradas con imagenes se crean a partir de un autor y un contenido.
  */
 
-public class EntradaEvento extends EntradaConComentario
+public class EntradaEvento extends Entrada
 {
 
     // Contenido de la entrada.
