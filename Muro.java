@@ -13,15 +13,18 @@ import java.util.ArrayList;
     private ArrayList <EntradaTexto> mensajes;
     // Entradas con imagenes.
     private ArrayList <EntradaFoto> fotos;
+     // Entradas con eventos.
+    private ArrayList <EntradaEvento> eventos;
     
     /**
      * Constructor - Construye e inicializa un muro vacio.
      */
     public Muro()
     {
-        //Inicializa mensajes y fotos.
+        //Inicializa mensajes ,fotos y eventos .
         mensajes = new ArrayList<>();
         fotos = new ArrayList<>();
+        eventos = new ArrayList<>();
     }
     
     /**
@@ -42,6 +45,16 @@ import java.util.ArrayList;
          fotos.add(entradaFoto);
      }
      
+      /**
+     * Anade una entrada de texto al muro.
+     * @param entrada La entrada de texto a anadir.
+     */
+    public void addEntradaEvento(EntradaEvento entrada)
+    {
+       eventos.add(entrada);
+    }
+    
+    
     /**
      * Devuelve una cadena con toda la informacion del muro.
      * @return Devuelve una cadena con toda la informacion del muro.
@@ -58,6 +71,11 @@ import java.util.ArrayList;
         
         // Buscamos todas las entradas con foto.
         for (EntradaFoto entrada : fotos) {
+            aDevolver += entrada + "\n\n";
+        }
+        
+         // Buscamos todas las entradas con eventos.
+        for (EntradaEvento entrada : eventos) {
             aDevolver += entrada + "\n\n";
         }
         

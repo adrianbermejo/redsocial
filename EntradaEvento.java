@@ -10,7 +10,7 @@ import java.time.temporal.ChronoUnit;
  * Las entradas con imagenes se crean a partir de un autor y un contenido.
  */
 
-public class EntradaTexto extends EntradaConComentario
+public class EntradaEvento extends EntradaConComentario
 {
 
     // Contenido de la entrada.
@@ -23,7 +23,7 @@ public class EntradaTexto extends EntradaConComentario
      * @param autor Autor de la entrada.
      * @param mensaje Contenido de la entrada.
      */
-    public EntradaTexto (String autor, String texto)
+    public EntradaEvento (String autor, String texto)
     {
         super(autor);
 
@@ -63,10 +63,8 @@ public class EntradaTexto extends EntradaConComentario
         else {
             aDevolver += numeroSegundos + " segundos";
         }
-        aDevolver += "\n";
-        // Comprobamos si hay comentarios. Si hay los mostramos, si no, mostramos un mensaje indicandolo.
-
-        aDevolver+=getcomentarios();
+      
+       
 
         return aDevolver;
     }

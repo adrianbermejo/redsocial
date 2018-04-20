@@ -10,7 +10,7 @@ import java.time.temporal.ChronoUnit;
  * Las entradas con imagenes se crean a partir de un autor, un titulo
  * para la imagen y la url de la imagen.
  */
-public class EntradaFoto  extends Entrada
+public class EntradaFoto  extends EntradaConComentario
 {
 
     // URL de la imagen.
