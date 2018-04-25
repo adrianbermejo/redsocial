@@ -54,6 +54,8 @@ public class Entrada
         return  "Likes: " + cantidadMeGusta + "\n";  
     }
 
-   
+   public void mostrar(){
+       
+    }
 
 }

@@ -76,5 +76,10 @@ public class EntradaEvento extends Entrada
         return aDevolver;
         
     }
+    
+     public void mostrar(){
+        
+        System.out.println(this);
+    }
 
 }

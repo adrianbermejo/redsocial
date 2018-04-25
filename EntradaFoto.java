@@ -81,4 +81,9 @@ public class EntradaFoto  extends EntradaConComentario
         aDevolver+=getcomentarios();
         return aDevolver;
     }
+    
+    public void mostrar(){
+        
+        System.out.println(this);
+    }
 }

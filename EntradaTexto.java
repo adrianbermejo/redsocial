@@ -70,13 +70,23 @@ public class EntradaTexto extends EntradaConComentario
 
         return aDevolver;
     }
-    
+
     public String autorYMensaje(){
-      String aDevolver = "";
-       aDevolver += "Usuario: " + getUsuario() + "\n"; 
+        String aDevolver = "";
+        aDevolver += "Usuario: " + getUsuario() + "\n"; 
         aDevolver += mensaje + "\n";
         return aDevolver;
-        
+
     }
 
+    public void mostrar(){
+
+        System.out.println(this);
+    }
+    
 }
+    
+        
+        
+        
+        
