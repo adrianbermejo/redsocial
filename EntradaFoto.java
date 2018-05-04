@@ -17,7 +17,8 @@ public class EntradaFoto  extends EntradaConComentario
     private String urlImagen;
     //Título de la entrada.
     private String titulo;
-
+    
+  
     /**
      * Constructor - Construye entradas a partir de un autor, el titulo de la imagen y su URL.
      * Las entradas se crean sin ningun ' me gusta'.
@@ -33,7 +34,7 @@ public class EntradaFoto  extends EntradaConComentario
         this.titulo = titulo;
 
     }
-    
+
     /**
      * Devuelve el URL de la imagen.
      * @return Devuelve el URL de la imagen.
@@ -51,7 +52,7 @@ public class EntradaFoto  extends EntradaConComentario
     {
         return titulo;
     }
-    
+
     /**
      * Devuelve una cadena con toda la informacion de la entrada.
      * @return Devuelve una cadena con toda la informacion de la entrada.
@@ -60,30 +61,45 @@ public class EntradaFoto  extends EntradaConComentario
     public String toString()
     {
         String aDevolver = "";
-        aDevolver += "Usuario: " + getUsuario() + "\n";
-        aDevolver += "Likes: " + getCantidadMeGusta() + "\n";
+        
+ 
+        aDevolver += super.toString();
+        
         aDevolver += "Url: " + urlImagen + "\n";
         aDevolver += "Titulo: " + titulo + "\n";
-        // Calculamos el numero de segundos que han pasado desde la fecha de publicacion.
-        long numeroSegundos = getMomentoPublicacion().until(LocalDateTime.now(), ChronoUnit.SECONDS);
-        aDevolver += "Escrito hace ";
 
-        // Comprobamos si debemos expresar el tiempo en segundos o minutos.
-        if(numeroSegundos > 59){
-            aDevolver += numeroSegundos / 60 + " minutos";
-        }
-        else {
-            aDevolver += numeroSegundos + " segundos";
-        }
-        aDevolver += "\n";
-        // Comprobamos si hay comentarios. Si hay los mostramos, si no, mostramos un mensaje indicandolo.
-
-        aDevolver+=getcomentarios();
         return aDevolver;
-    }
+    } 
     
-    public void mostrar(){
+     /**
+     * Devuelve una cadena con toda la informacion de la entrada.
+     * @return Devuelve una cadena con toda la informacion de la entrada.
+     */
+    @Override
+    public String html()
+    {
+        String aDevolver = "";
         
-        System.out.println(this);
-    }
+ 
+        aDevolver += super.html();
+        
+        aDevolver +="<tr >"+"<td >"+ "Titulo: " + titulo + "</td>";
+
+        aDevolver +="<td colspan=\"2\">"+"Url: " +"<img src='"+ urlImagen +"'/>" + "</td>" +"</tr>";
+
+        return aDevolver;
+    } 
+     /**
+     * Devuelve una cadena con toda la informacion de la entrada.
+     * @return Devuelve una cadena con toda la informacion de la entrada.
+     */
+    @Override
+    public void toStringExclusivo()
+    {
+        String aDevolver = "";
+        
+        aDevolver += "Titulo: " + titulo + "\n";
+        aDevolver += "Url: " + urlImagen + "\n";
+      System.out.println( aDevolver);
+    } 
 }

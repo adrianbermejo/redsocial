@@ -48,37 +48,36 @@ public class EntradaEvento extends Entrada
     public String toString()
     {
         String aDevolver = "";
-        aDevolver += "Usuario: " + getUsuario() + "\n";
-        aDevolver += "Likes: " + getCantidadMeGusta() + "\n";        
+        aDevolver += super.toString();
         aDevolver += mensaje + "\n";
-
-        // Calculamos el numero de segundos que han pasado desde la fecha de publicacion.
-        long numeroSegundos = getMomentoPublicacion().until(LocalDateTime.now(), ChronoUnit.SECONDS);
-        aDevolver += "Escrito hace ";
-
-        // Comprobamos si debemos expresar el tiempo en segundos o minutos.
-        if(numeroSegundos > 59){
-            aDevolver += numeroSegundos / 60 + " minutos";
-        }
-        else {
-            aDevolver += numeroSegundos + " segundos";
-        }
-      
-       
 
         return aDevolver;
     }
-    
-    public String autorYMensaje(){
-      String aDevolver = "";
-       aDevolver += "Usuario: " + getUsuario() + "\n"; 
-        aDevolver += mensaje + "\n";
+
+    /**
+     * Devuelve una cadena con toda la informacion de la entrada.
+     * @return Devuelve una cadena con toda la informacion de la entrada.
+     */
+    @Override
+    public String html()
+    {
+        String aDevolver = "";
+        aDevolver += super.html();
+        aDevolver +="<tr>"+"<td colspan=\"3\">"+ mensaje +"</td>"+"</tr>";
+
         return aDevolver;
-        
     }
-    
-     public void mostrar(){
-        
+
+    @Override
+    public void toStringExclusivo()
+    {
+        String aDevolver = "";
+        aDevolver += mensaje + "\n";
+        System.out.println( aDevolver);
+    }
+
+    public void mostrar(){
+
         System.out.println(this);
     }
 

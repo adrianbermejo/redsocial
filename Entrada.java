@@ -16,15 +16,14 @@ public class Entrada
     private LocalDateTime momentoPublicacion;
     // Numero de 'me gusta' de la entrada.
     private int cantidadMeGusta;
-    // Comentarios de la entrada.
-    private ArrayList<String> comentarios;
+ 
 
     public Entrada (String autor)
     {
         usuario = autor;
         momentoPublicacion = LocalDateTime.now();
         cantidadMeGusta = 0;
-        comentarios = new ArrayList<>();
+     
     }
 
     /**
@@ -47,15 +46,72 @@ public class Entrada
     }
 
     public String getUsuario(){
-        return  "Usuario: " + usuario + "\n";  
+        return  usuario;  
     }
 
-    public String getCantidadMeGusta(){
-        return  "Likes: " + cantidadMeGusta + "\n";  
+    public int getCantidadMeGusta(){
+        return  cantidadMeGusta;  
     }
 
+    
+    /**
+     * Devuelve una cadena con toda la informacion de la entrada.
+     * @return Devuelve una cadena con toda la informacion de la entrada.
+     */
+    @Override
+    public String toString()
+    {
+        String aDevolver = "";
+        aDevolver += "Usuario: " + getUsuario() + "\n";
+        aDevolver += "Likes: " + cantidadMeGusta + "\n";        
+        
+        // Calculamos el numero de segundos que han pasado desde la fecha de publicacion.
+        long numeroSegundos = getMomentoPublicacion().until(LocalDateTime.now(), ChronoUnit.SECONDS);
+        aDevolver += "Escrito hace ";
+
+        // Comprobamos si debemos expresar el tiempo en segundos o minutos.
+        if(numeroSegundos > 59){
+            aDevolver += numeroSegundos / 60 + " minutos";
+        }
+        else {
+            aDevolver += numeroSegundos + " segundos";
+        }
+             
+
+        return aDevolver;
+    }
+   
+    
+    /**
+     * Devuelve una cadena con toda la informacion de la entrada.
+     * @return Devuelve una cadena con toda la informacion de la entrada.
+     */
+    public String html()
+    {
+        String aDevolver = "";
+        aDevolver += "<tr>" + "<td>"+"Usuario: " + usuario  + "</td>";
+        aDevolver +="<td>"+ "Likes: " + cantidadMeGusta + "</td>";        
+        
+        // Calculamos el numero de segundos que han pasado desde la fecha de publicacion.
+        long numeroSegundos = getMomentoPublicacion().until(LocalDateTime.now(), ChronoUnit.SECONDS);
+        aDevolver += "<td>" + "Escrito hace ";
+
+        // Comprobamos si debemos expresar el tiempo en segundos o minutos.
+        if(numeroSegundos > 59){
+            aDevolver += numeroSegundos / 60 + " minutos";
+        }
+        else {
+            aDevolver += numeroSegundos + " segundos";
+        }
+           aDevolver +=  "</td>"+"</tr>";
+
+        return aDevolver;
+    }
    public void mostrar(){
        
     }
-
+    
+     public void toStringExclusivo()
+    {
+    }
 }

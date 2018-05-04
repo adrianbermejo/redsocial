@@ -39,4 +39,31 @@ public class EntradaConComentario extends Entrada
         }
         return aDevolver;
     }
+    
+    /**
+     * Devuelve una cadena con toda la informacion de la entrada.
+     * @return Devuelve una cadena con toda la informacion de la entrada.
+     */
+    @Override
+    public String toString()
+    {
+        String aDevolver = "";
+       aDevolver += super.toString();
+        aDevolver = getcomentarios();
+        
+        return aDevolver;
+    }
+    
+     /**
+     * Devuelve una cadena con toda la informacion de la entrada.
+     * @return Devuelve una cadena con toda la informacion de la entrada.
+     */
+    @Override
+    public String html()
+    {
+        String aDevolver = "";
+        aDevolver += super.html();
+        aDevolver += "<tr>" + "<td colspan='3'>"+ getcomentarios() + "</td>"+ "</tr>";
+        return aDevolver;
+    }
 }
